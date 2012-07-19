@@ -1,0 +1,15 @@
+This code is an add-on for Advanced Custom Fields plugin.
+
+This add-on enables Num field.
+You can set the minimum, maximum, and the step in addtion to the default value.
+Also, you can use a slider bar to set the number, if your browser supports html5.
+
+== Usage ==
+
+Put the numfield.php into your theme's folder.
+Copy the code shown below, and paste it into your theme's functions.php
+
+if( function_exists( 'register_field' ) )
+{
+    register_field('Num_field', dirname(__File__) . '/numfield.php');
+}
