@@ -13,3 +13,11 @@ if( function_exists( 'register_field' ) )
 {
     register_field('Num_field', dirname(__File__) . '/num/numfield.php');
 }
+
+== Special Thanks ==
+Numfield add-on uses Frank Yan's html5slider.
+http://frankyan.com/labs/html5slider/
+https://github.com/fryn/html5slider
+Some browsers do not support html5.
+html5slider.js enables a slider like UI.
+Thanks, Frank Yan.
