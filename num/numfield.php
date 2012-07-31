@@ -61,7 +61,7 @@ class Num_field extends acf_Field
 			'value'	=>	$field['max'],
 		));
 ?>
-				<p class="alert" id="alert_max"></p> <!-- TODO -->
+				<!-- <p class="alert" id="alert_max"></p> TODO -->
 			</td>
 		</tr>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -77,7 +77,7 @@ class Num_field extends acf_Field
 			'value'	=>	$field['min'],
 		));
 ?>
-				<p class="alert" id="alert_min"></p> <!-- TODO -->
+				<!-- <p class="alert" id="alert_min"></p> TODO -->
 
 			</td>
 		</tr>
@@ -94,7 +94,7 @@ class Num_field extends acf_Field
 			'value'	=>	$field['step'],
 		));
 ?>
-				<p class="alert" id="alert_step"></p> <!-- TODO -->
+				<!-- <p class="alert" id="alert_step"></p> TODO -->
 			</td>
 		</tr>
 		<tr class="field_option field_option_<?php echo $this->name; ?>">
@@ -110,7 +110,7 @@ class Num_field extends acf_Field
 			'value'	=>	$field['default_value'],
 		));
 ?>
-				<p class="alert" id="alert_default_value"></p> <!-- TODO -->
+				<!-- <p class="alert" id="alert_default_value"></p> TODO -->
 			</td>
 		</tr>
 <?php 
@@ -193,14 +193,19 @@ class Num_field extends acf_Field
 
 	function admin_print_styles()
 	{
-?>
-<style type="text/css">
-.slider {
-	vertical-align:middle;
-}
-</style>
-<?php	
+		$num_admin_css = '<style type="text/css">.slider {vertical-align:middle;}</style>';
+		echo apply_filters('num_admin_css', $num_admin_css);
+	}
+
+	function admin_print_scripts()
+	{
+		// javasccript for browsers which does not support html5
+		// http://frankyan.com/labs/html5slider/
+		$num_html5slider_dir = apply_filters('num_html5slider_dir', get_stylesheet_directory_uri() . '/num/');
+		wp_register_script( 'html5slider', $num_html5slider_dir . 'html5slider.js' );
+		wp_enqueue_script(array(
+			'html5slider'
+		));	
 	}
 }
-
 ?>

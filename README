@@ -11,5 +11,5 @@ Copy the code shown below, and paste it into your theme's functions.php
 
 if( function_exists( 'register_field' ) )
 {
-    register_field('Num_field', dirname(__File__) . '/numfield.php');
+    register_field('Num_field', dirname(__File__) . '/num/numfield.php');
 }
