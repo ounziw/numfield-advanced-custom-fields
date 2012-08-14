@@ -171,9 +171,7 @@ class Num_field extends acf_Field
 	 *-------------------------------------------------------------------------------------*/
 
 
-	function pre_save_field($field)
-	{
-		// TODO: need to check at admin page (by javascript)
+	static function rounding($field) {
 		// force min <= max
 		$field['max'] = floatval($field['max']);
 		$field['min'] = floatval($field['min']);
@@ -189,6 +187,11 @@ class Num_field extends acf_Field
 		}
 		return $field;
 	}
+	function pre_save_field($field)
+	{
+		// TODO: need to check at admin page (by javascript)
+		return self::rounding($field);
+	}
 
 
 	function admin_print_styles()
@@ -201,7 +204,7 @@ class Num_field extends acf_Field
 	{
 		// javasccript for browsers which does not support html5
 		// http://frankyan.com/labs/html5slider/
-		$num_html5slider_dir = apply_filters('num_html5slider_dir', get_stylesheet_directory_uri() . '/num/');
+		$num_html5slider_dir = apply_filters('num_html5slider_dir', WP_PLUGIN_DIR . '/numfield/');
 		wp_register_script( 'html5slider', $num_html5slider_dir . 'html5slider.js' );
 		wp_enqueue_script(array(
 			'html5slider'

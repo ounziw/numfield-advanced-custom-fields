@@ -6,13 +6,12 @@ Also, you can use a slider bar to set the number, if your browser supports html5
 
 == Usage ==
 
-Put the numfield.php into your theme's folder.
-Copy the code shown below, and paste it into your theme's functions.php
+Put the numfield folder into your plugins folder.
+Then, activate Num Field plugin.
 
-if( function_exists( 'register_field' ) )
-{
-    register_field('Num_field', dirname(__File__) . '/num/numfield.php');
-}
+== Warning ==
+This addon requires PHP5.3 or later.
+This addon uses HTML5; Using browsers which support HTML5 is recommended.
 
 == Special Thanks ==
 Numfield add-on uses Frank Yan's html5slider.
@@ -21,3 +20,7 @@ https://github.com/fryn/html5slider
 Some browsers do not support html5.
 html5slider.js enables a slider like UI.
 Thanks, Frank Yan.
+
+krang suggested me to add this js.
+Thanks, krang.
+http://support.advancedcustomfields.com/profile/3360/krang
