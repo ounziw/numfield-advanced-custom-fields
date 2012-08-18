@@ -20,8 +20,8 @@ class Num_field extends acf_Field
 		parent::__construct($parent);
 
 		// set name / title
-		$this->name = 'Num'; // variable name (no spaces / special characters / etc)
-		$this->title = __("Number",'acf'); // field label (Displayed in edit screens)
+		$this->name = 'HTML5Number'; // variable name (no spaces / special characters / etc)
+		$this->title = __("HTML5 Number",'acf'); // field label (Displayed in edit screens)
 
 	}
 
@@ -135,7 +135,7 @@ class Num_field extends acf_Field
 		$field['min'] = floatval($field['min']);
 		$field['step'] = abs(floatval($field['step']));
 
-		echo '<input width="10" type="number" min="'.$field['min'].'" max="'.$field['max'].'" step="'.$field['step'].'" name=' . $field['name'] . ' id=' . $field['name'] . ' value="' . $field['value'] . '" class="number">';
+		echo '<input size="10" type="number" min="'.$field['min'].'" max="'.$field['max'].'" step="'.$field['step'].'" name=' . $field['name'] . ' id=' . $field['name'] . ' value="' . $field['value'] . '" class="number">';
 		echo '<input type="range"  min="'.$field['min'].'" max="'.$field['max'].'" step="'.$field['step'].'" value="' . $field['value'] . '" id="val2" class="slider" name="' . $field['name'] . '" />';
 ?>
 <?php
@@ -196,7 +196,7 @@ class Num_field extends acf_Field
 
 	function admin_print_styles()
 	{
-		$num_admin_css = '<style type="text/css">.slider {vertical-align:middle;}</style>';
+		$num_admin_css = '<style type="text/css">input.number {width:20%!important;} .slider {vertical-align:middle;}</style>';
 		echo apply_filters('num_admin_css', $num_admin_css);
 	}
 
